@@ -82,7 +82,7 @@ if datasource_name not in datasource_names:
     # Great Expectations utiliza el concepto de "expectation suites", que son colecciones de expectativas que definen cómo deberían comportarse tus datos. Cada expectativa es una regla o prueba específica que tus datos deben cumplir.
     # Por ejemplo, una expectativa común es que los valores de una columna no deben ser nulos. Otra expectativa común es que los valores de una columna deben estar dentro de un rango específico.
     # Para crear una expectativa, primero debes crear una expectativa suite. Luego, puedes agregar expectativas a la suite.
-    
+
     # suite name
     expectation_suite_name = "expectativas_pan_stg_ejecucion"
 
@@ -155,5 +155,7 @@ else:
 
 
 # run checkpoint
-checkpoint.run()
+result = checkpoint.run()
 context.open_data_docs()
+
+print(result)
