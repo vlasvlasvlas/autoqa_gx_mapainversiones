@@ -79,6 +79,10 @@ if datasource_name not in datasource_names:
     # Expectation suite
     # In order to add specific constraints to the assets, you first have to configure Expectation Suites. After adding individual Expectations to each suite, you can then update the Data Context set up in the beginning with the new suite.
 
+    # Great Expectations utiliza el concepto de "expectation suites", que son colecciones de expectativas que definen cómo deberían comportarse tus datos. Cada expectativa es una regla o prueba específica que tus datos deben cumplir.
+    # Por ejemplo, una expectativa común es que los valores de una columna no deben ser nulos. Otra expectativa común es que los valores de una columna deben estar dentro de un rango específico.
+    # Para crear una expectativa, primero debes crear una expectativa suite. Luego, puedes agregar expectativas a la suite.
+    
     # suite name
     expectation_suite_name = "expectativas_pan_stg_ejecucion"
 
@@ -86,6 +90,8 @@ if datasource_name not in datasource_names:
 
     # add expectations:
     # https://greatexpectations.io/expectations
+
+    # Mediante Expectation Configurations: Este método es más estructurado y te permite definir expectativas como configuraciones que luego se añaden a una suite de expectaciones. Esto es útil para cuando quieres mantener un código más modular y reusable, especialmente si las mismas expectativas se aplicarán a diferentes conjuntos de datos o en diferentes momentos.
 
     # 1. expect_column_values_to_not_be_null
     suite_store.add_expectation(
@@ -99,6 +105,9 @@ if datasource_name not in datasource_names:
     # Optional:
     # Run assert "my_expectation_suite" in context.list_expectation_suite_names() to veriify the Expectation Suite was created.
 
+    # Crea expectativas directamente con el Validator: Este método permite añadir expectativas directamente al objeto validator y luego guardarlas como parte de la suite de expectaciones. Es útil para pruebas rápidas y experimentación porque puedes verificar las expectativas al vuelo.
+
+    # Añade expectativas directamente usando el método de configuración del validator:
     validator = context.get_validator(
         batch_request=batch_request,
         expectation_suite_name=expectation_suite_name,
