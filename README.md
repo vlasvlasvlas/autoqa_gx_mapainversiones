@@ -20,8 +20,8 @@ SQL_CONNSTRING_170_DB=<dbname>
 
 Para ejecutar las validaciones, debes seguir estos pasos:
 
-1. Instala las dependencias necesarias: `pip install great_expectations`.
-2. Ejecuta el script principal (en la carpeta de scripts) para iniciar las validaciones y generar la documentación de datos.
+1. Instala las dependencias necesarias: `pip install -r requirements.txt`.
+2. Ejecuta el script principal (en la carpeta de scripts) para iniciar las validaciones y generar la documentación de datos. `python <PAIS_ISO2>_qa.py`. Sustituye `<usuario>` por el código ISO2 del país. Esta demo contiene unas validaciones para Panamá cuya ISO2 es "PA".
 
 ## Componentes del Proyecto
 
