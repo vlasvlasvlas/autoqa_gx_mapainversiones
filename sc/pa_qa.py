@@ -29,7 +29,7 @@ connection_string = (
     os.getenv("SQL_CONNSTRING_PRE") + db + os.getenv("SQL_CONNSTRING_POST")
 )
 
-print(connection_string)
+#print(connection_string)
 
 # doc:
 # https://docs.greatexpectations.io/docs/oss/guides/connecting_to_your_data/fluent/database/connect_sql_source_data/
@@ -56,7 +56,7 @@ if datasource_name not in datasource_names:
     # Define Data Assets to specify the subset of data you'd like to work with. The asset can be as simple as full tables, or be as complex as a custom Data Analysis Expressions (DAX) query.
 
     # check tabla
-    asset_name = "asset_1_pan_stg_ejecucion"
+    asset_name = "asset_1_pan_stg"
     asset_table_schema = "dbo"
     asset_table_name = "mef_vw_ejecucion"
 
@@ -84,7 +84,7 @@ if datasource_name not in datasource_names:
     # Para crear una expectativa, primero debes crear una expectativa suite. Luego, puedes agregar expectativas a la suite.
 
     # suite name
-    expectation_suite_name = "expectativas_pan_stg_ejecucion"
+    expectation_suite_name = "gx_pan_stg"
 
     suite_store = context.add_expectation_suite(expectation_suite_name)
 
@@ -127,7 +127,7 @@ if datasource_name not in datasource_names:
 
     checkpoint = Checkpoint(
         name=my_checkpoint_name,
-        run_name_template="%Y%m%d-%H%M%S-my-run-name-template",
+        run_name_template="%Y%m%d-%H%M%S-pa",
         data_context=context,
         batch_request=batch_request,
         expectation_suite_name=expectation_suite_name,
